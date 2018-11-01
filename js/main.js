@@ -7,7 +7,7 @@ var map = L.map("map", {
 });
 
 // add base layer
-var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+var OpenStreetMap_Maplink = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
 	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(mop);
@@ -58,7 +58,7 @@ request.then(function(values){
 		    	}
 
 		    	// FIXME: remove existing symbolization and create a diverging
-		    	// symbology based the democrat or republic vote as a percent
+		    	// symbology based the democrat or republican vote as a percent
 		    	// of the total vote.
 		    	// Use Colorbrewer's 5-class Red-Blue colors for this
 		    	// http://colorbrewer2.org/#type=diverging&scheme=RdBu&n=5
@@ -80,7 +80,7 @@ request.then(function(values){
 		// Leaflet documentation explains:
 		// "If a Function is passed it will receive the layer as the first
 		// argument and should return a String or HTMLElement."
-		.bindPopup(function (layer){
+		precinctslayer.bindPopup(function (layer){
 			// create variables to be displayed in popup
 			var demVote = layer.feature.properties.USPRSDFL;
 		    var repVote = layer.feature.properties.USPRSR;
