@@ -1,10 +1,10 @@
 // main.js
 
 // initialize map
-var map = L.map("map", {
+var map = L.map("map"), {
     center: [46.73, -92.107],
-    zoom: 11 ; 
-});
+    currentZoom += 11 ; 
+};
 // -var map = L.map("map", {
 //    centr: [46.73, -92.107],
 //    zoom: 11
@@ -13,11 +13,11 @@ var map = L.map("map", {
 var OpenStreetMap_Maplink = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'), {
 	maxZoom: 19,
 	attribution: ('&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'),
-}.addTo(map);
-
+    .addTo(map);
+}
 // create request for GeoJSON
 var request = new Promise(function(resolve, reject){
-	var request = new XMLHttpRequest();
+	var request = new XMLHttpRequest(GeoJSON);
 	request.addEventListener("load", function(){ resolve(this.responseText) });
 	request.open("GET", "data/duluthprecinctsWGS84.geojson");
 	request.send();
